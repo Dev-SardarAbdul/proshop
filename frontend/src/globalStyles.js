@@ -22,6 +22,26 @@ const GlobalStyle = createGlobalStyle`
   white-space: nowrap;
 }
 
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card img {
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card:hover img {
+  transform: scale(1.1); /* Adjust the scale factor for desired zoom effect */
+}
+
+
+
 `;
 
 export default GlobalStyle;
