@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 .card:hover img {
-  transform: scale(1.1); /* Adjust the scale factor for desired zoom effect */
+  transform: scale(1.1); 
 }
 
 
