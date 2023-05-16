@@ -1,7 +1,7 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
 
-function Rating({ rating }) {
+function Rating({ rating, ratingNum }) {
   const starsData = {
     size: 30,
     count: 5,
@@ -11,8 +11,14 @@ function Rating({ rating }) {
   };
   return (
     <div className="d-flex  align-items-center gap-3">
-      <ReactStars {...starsData} />
-      <p style={{ margin: 0 }}> {rating} Reviews</p>
+      <ReactStars
+        size={30}
+        count={5}
+        value={rating}
+        isHalf={true}
+        edit={false}
+      />
+      <p style={{ margin: 0 }}> {ratingNum} Reviews</p>
     </div>
   );
 }

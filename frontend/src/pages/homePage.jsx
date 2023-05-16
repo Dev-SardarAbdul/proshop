@@ -7,15 +7,13 @@ const HomeScreen = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchedProducts = async () => {
+    const fetchProducts = async () => {
       const { data } = await axios.get("http://localhost:8000/api/products");
       setProducts(data);
     };
 
-    fetchedProducts();
+    fetchProducts();
   }, []);
-
-  console.log(products);
   return (
     <div className="py-2">
       <Container>

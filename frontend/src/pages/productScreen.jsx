@@ -9,12 +9,27 @@ import {
   Button,
   Container,
 } from "react-bootstrap";
-import products from "../data";
 import Rating from "../components/rating";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const ProductScreen = () => {
-  const { id: productId } = useParams();
-  const product = products.find((p) => p._id === productId);
+  const [product, setProduct] = useState([]);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axios.get(
+        `http://localhost:8000/api/products/${id}`
+      );
+      setProduct(data);
+    };
+
+    fetchData();
+  }, [id]);
+
+  console.log("product", product);
 
   return (
     <Container>
@@ -31,7 +46,7 @@ const ProductScreen = () => {
               <h3>{product.name}</h3>
             </ListGroup.Item>
             <ListGroup.Item>
-              <Rating rating={product.rating} />
+              <Rating rating={product.rating} ratingNum={product.numReviews} />
             </ListGroup.Item>
             <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
             <ListGroup.Item>Description: {product.description}</ListGroup.Item>
