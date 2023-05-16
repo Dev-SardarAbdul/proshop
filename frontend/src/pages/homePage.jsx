@@ -14,6 +14,8 @@ const HomeScreen = () => {
 
     fetchProducts();
   }, []);
+
+  console.log(products, "products");
   return (
     <div className="py-2">
       <Container>
